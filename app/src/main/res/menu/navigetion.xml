@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="首页"
+          android:orderInCategory="0"
+          android:id="@+id/na_front"
+         android:icon="@drawable/more2"
+        />
+    <item android:title="上传"
+        android:orderInCategory="1"
+        android:id="@+id/na_up"
+        android:icon="@drawable/ic_baseline_control_point_24"
+        />
+    <item android:title="我"
+        android:orderInCategory="2"
+        android:id="@+id/na_seif"
+        android:icon="@drawable/my"
+        />
+</menu>
+

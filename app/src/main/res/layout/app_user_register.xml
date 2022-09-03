@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/kk"
+    android:alpha="1.5">
+
+    <EditText
+        android:id="@+id/bt_Password"
+        android:layout_width="209dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/my_text"
+        android:alpha="0.7"
+        android:ems="10"
+
+        android:hint="  输入密码"
+
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Password2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/bt_Account"
+        android:layout_width="209dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/my_text"
+        android:alpha="0.7"
+        android:ems="10"
+        android:hint="  用户名"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777"
+        tools:ignore="TouchTargetSizeCheck"
+        />
+
+    <Button
+        android:id="@+id/bt_S_Register"
+        android:layout_width="154dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="172dp"
+        android:background="@drawable/my_button2"
+        android:text="注册"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_reLogin"
+        android:layout_width="154dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/my_button2"
+        android:text="登录"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_S_Register"
+        app:layout_constraintVertical_bias="0.806" />
+
+    <EditText
+        android:id="@+id/bt_Password2"
+        android:layout_width="209dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="60dp"
+
+        android:background="@drawable/my_text"
+        android:alpha="0.7"
+
+        android:hint="  确认密码"
+
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/bt_S_Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
