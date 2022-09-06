@@ -4,6 +4,17 @@
     package="com.example.photosharing">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <!--在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
 
     <application
         android:allowBackup="true"
@@ -14,7 +25,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoSharing"
-
         android:usesCleartextTraffic="true"
 
         tools:targetApi="31">
@@ -22,8 +32,9 @@
             android:exported="false">
 
         </activity>
-        <activity android:name=".main.App_Main"
-            android:exported="false"></activity>
+        <activity
+            android:name=".main.App_Main"
+            android:exported="false" />
         <activity android:name=".login.App_UserRegister"
             android:exported="false">
 

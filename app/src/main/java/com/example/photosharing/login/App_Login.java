@@ -31,6 +31,7 @@ import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class App_Login extends AppCompatActivity {
@@ -111,6 +112,7 @@ public class App_Login extends AppCompatActivity {
         });
 
 
+
         /**
          * @description Yes/Not show password
          * @param  sig
@@ -144,6 +146,7 @@ public class App_Login extends AppCompatActivity {
                 }
             }
         });
+
 
         /**
          * @description remember password
@@ -209,6 +212,7 @@ public class App_Login extends AppCompatActivity {
                         .add("username",acc)
                         .build();
 
+                
                 Request request = new Request.Builder()
                         .post(formBody)
                         .url(url+"/member/photo/user/login")
@@ -270,4 +274,5 @@ public class App_Login extends AppCompatActivity {
 
 
     }
+
 }
