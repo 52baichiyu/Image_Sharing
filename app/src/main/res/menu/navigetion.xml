@@ -6,13 +6,17 @@
           android:id="@+id/na_front"
          android:icon="@drawable/more2"
         />
-    <item android:title="上传"
-        android:orderInCategory="1"
-        android:id="@+id/na_up"
-        android:icon="@drawable/ic_baseline_control_point_24"
-        />
+<!--    <item android:title="上传"-->
+<!--        android:orderInCategory="1"-->
+<!--        android:id="@+id/na_up"-->
+<!--        android:icon="@drawable/ic_baseline_control_point_24"-->
+<!--        />-->
+        <item android:title=""
+            android:icon="@null">
+
+        </item>
     <item android:title="我"
-        android:orderInCategory="2"
+        android:orderInCategory="1"
         android:id="@+id/na_seif"
         android:icon="@drawable/my"
         />

@@ -9,26 +9,107 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.993"
-        app:menu="@menu/navigetion" />
+        app:menu="@menu/navigetion"
+        app:itemRippleColor="@null">
 
-    <androidx.viewpager.widget.ViewPager
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+        <ImageView
+            android:id="@+id/up_data"
+            android:layout_width="44dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="330dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+
+            android:src="@drawable/ic_baseline_control_point_24" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+
+
+
+
+
+    <!--    <RadioGroup-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/navigation"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/finding"-->
+
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:drawablePadding="">-->
+
+    <!--        </RadioButton>-->
+
+    <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--            android:id="@+id/floatingActionButton2"-->
+    <!--            android:layout_width="89dp"-->
+    <!--            android:layout_height="77dp"-->
+    <!--            android:clickable="true"-->
+    <!--            app:srcCompat="@drawable/ic_baseline_control_point_24" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/my"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content">-->
+
+    <!--        </RadioButton>-->
+
+
+    <!--    </RadioGroup>-->
+
+
+
+
+    <com.example.photosharing.main.FiexViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="680dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck">
+
+    </com.example.photosharing.main.FiexViewPager>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -322,13 +322,13 @@ public class FrontFragment extends Fragment {
             }
         });
 
-
-        newslist.add(0,data_image);
-        myAdapter.notifyItemInserted(0);
+           if(myAdapter.getItemCount()<1) {
+               newslist.add(0, data_image);
+               myAdapter.notifyItemInserted(0);
 //
-        myAdapter.notifyItemChanged(0,newslist.size()-0);
-        myAdapter.notifyDataSetChanged();
-
+               myAdapter.notifyItemChanged(0, newslist.size() - 0);
+               myAdapter.notifyDataSetChanged();
+           }
 
 
 

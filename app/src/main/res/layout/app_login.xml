@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".login.App_Login"
-    android:background="@mipmap/kk"
+    android:background="@color/white"
     android:alpha="1.5"
     >
     <RelativeLayout

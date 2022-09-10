@@ -37,14 +37,16 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
         super.onViewCreated(view, savedInstanceState);
        button= view.findViewById(R.id.button2);
        textView = view.findViewById(R.id.textView);
+       Bundle bundle = getArguments();
+       String data = bundle.getString("id","");
        button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
               if(sig == 0) {
-                  textView.setText("12314");
+                  textView.setText(data);
                   sig = 1;
               }
-              else textView.setText("123");
+              else textView.setText("123456");
 
            }
 

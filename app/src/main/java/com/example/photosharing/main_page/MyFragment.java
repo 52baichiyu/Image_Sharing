@@ -2,6 +2,7 @@ package com.example.photosharing.main_page;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,7 +13,7 @@ import com.example.photosharing.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyFragment#newInstance} factory method to
+
  * create an instance of this fragment.
  */
 public class MyFragment extends Fragment {
@@ -22,10 +23,17 @@ public class MyFragment extends Fragment {
     public MyFragment() {
 
     }
-@Override
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_my, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my, container, false);
+        return view;
     }
 }

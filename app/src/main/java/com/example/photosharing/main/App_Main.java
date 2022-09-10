@@ -5,8 +5,11 @@ package com.example.photosharing.main;/*
  */
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,15 +18,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.photosharing.R;
+import com.example.photosharing.Up_Data.App_up_Data;
+import com.example.photosharing.login.App_Login;
 import com.example.photosharing.main_page.FindFragment;
 import com.example.photosharing.main_page.FrontFragment;
 import com.example.photosharing.main_page.MyFragment;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import org.json.JSONObject;
 
 
 public class App_Main extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
@@ -36,10 +38,12 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
      * @param
     */
 
-    ViewPager viewPager;
+    ImageView image;
+
+    FiexViewPager viewPager;
     BottomNavigationView bottomNavigationView;
     FindFragment findFragment = new FindFragment();
-    FrontFragment frontFragment = new FrontFragment();
+//    FrontFragment frontFragment = new FrontFragment();
     MyFragment myFragment = new MyFragment();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +85,15 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
   */
          viewPager = findViewById(R.id.viewPager);
          viewPager.addOnPageChangeListener((ViewPager.OnPageChangeListener) this);
+
          bottomNavigationView = findViewById(R.id.navigation);
          bottomNavigationView.setOnItemSelectedListener((NavigationBarView.OnItemSelectedListener) this);
 
+         image = findViewById(R.id.up_data);
+
+
+         Bundle bundle = new Bundle();
+         bundle.putString("id","love");
 
          /*
           * @description 页面切换
@@ -93,22 +103,32 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
              @NonNull
              @Override
              public Fragment getItem(int position) {
+                 if(position!=3)
                  switch (position)
                  {
-                     case 0:return frontFragment;
-                     case 1:return findFragment;
-                     case 2:return myFragment;
+//                     case 1:  return frontFragment;
+                     case 0: findFragment.setArguments(bundle); return findFragment;
+                     case 1:return myFragment;
                  }
                  return null;
              }
 
              @Override
              public int getCount() {
-                 return 3;
+                 return 2;
              }
          });
 
+              image.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View view) {
+                      Intent intent = new Intent(App_Main.this, App_up_Data.class);
 
+                      intent.putExtra("Id", Id);
+                      intent.putExtra("apkId", apkId);
+                      startActivity(intent);
+                  }
+              });
 
 
      }
@@ -121,6 +141,7 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
 
     @Override
     public void onPageSelected(int position) {
+
            bottomNavigationView.getMenu().getItem(position).setChecked(true);
     }
 
@@ -131,7 +152,13 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-         viewPager.setCurrentItem(item.getOrder());
-        return true;
+
+              viewPager.setCurrentItem(item.getOrder());
+              return true;
+
+         //   2131230996
+
     }
+
+
 }

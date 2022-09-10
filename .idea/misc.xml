@@ -27,12 +27,20 @@
         <entry key="..\:/CCC/Android_Project/PhotoSharing/app/src/main/res/layout/fragment_my.xml" value="0.18489583333333334" />
         <entry key="..\:/CCC/Android_Project/PhotoSharing/app/src/main/res/menu/navigetion.xml" value="0.67" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/background.xml" value="0.2335" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2325" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button.xml" value="0.2325" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button2.xml" value="0.2325" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_input.xml" value="0.192" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_input2.xml" value="0.2315" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_text.xml" value="0.2325" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_login.xml" value="0.225" />
-        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_main.xml" value="0.225" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_main.xml" value="0.362876254180602" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_up_data.xml" value="0.33" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_user_register.xml" value="0.22135416666666666" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_from.xml" value="0.3619791666666667" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
-        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/menu/navigetion.xml" value="0.3619791666666667" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/menu/navigetion.xml" value="0.25" />
       </map>
     </option>
   </component>

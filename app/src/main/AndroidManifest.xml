@@ -28,8 +28,17 @@
         android:usesCleartextTraffic="true"
 
         tools:targetApi="31">
+
+        <!--            Up_Data Ativity-->
+        <activity android:name=".Up_Data.App_up_Data"
+            android:exported="false">
+
+        </activity>
         <activity android:name=".login.App_Login"
             android:exported="false">
+
+
+
 
         </activity>
         <activity
