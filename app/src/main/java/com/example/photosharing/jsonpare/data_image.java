@@ -21,5 +21,8 @@ public class data_image {
     }
 
     private Bitmap Image;
+    public data_image() {
+
+    }
 
 }

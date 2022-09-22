@@ -34,6 +34,9 @@
             android:exported="false">
 
         </activity>
+        <activity
+            android:name=".Up_Data.App_up__Datadown"
+            android:exported="false" />
         <activity android:name=".login.App_Login"
             android:exported="false">
 

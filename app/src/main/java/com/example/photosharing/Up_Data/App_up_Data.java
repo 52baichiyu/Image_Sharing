@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -24,12 +23,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.photosharing.MyAdpter.MyAdapter;
+import com.example.photosharing.MyAdpter.MyAdapter_0;
 import com.example.photosharing.R;
 import com.example.photosharing.jsonpare.Data_Path;
 import com.example.photosharing.jsonpare.Data_pubilish;
 import com.example.photosharing.jsonpare.data_image;
 
-import com.example.photosharing.login.App_Login;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -78,7 +77,7 @@ public class App_up_Data extends AppCompatActivity {
      * @param 
     */
     private String image_code;
-    private String pu_titile;
+    private String pu_title;
     private String pu_content;
     /*
      * @description xml components
@@ -87,7 +86,7 @@ public class App_up_Data extends AppCompatActivity {
     
         Button image_button;
         ImageView imageView;
-        EditText titile_text;
+        EditText title_text;
         EditText conte_text;
         ImageView come_Back;
         Button save_data;
@@ -97,8 +96,8 @@ public class App_up_Data extends AppCompatActivity {
          * @description user id apkid from Login
          * @param
         */
-    private String Id;
-    private String apkId;
+    private static String Id;
+    private static String apkId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,25 +113,16 @@ public class App_up_Data extends AppCompatActivity {
         apkId = intent.getStringExtra("apkId");
 
         recyclerView = findViewById(R.id.lvNews);
-        myAdapter = new MyAdapter(App_up_Data.this, R.layout.item_list, newslist);
+        myAdapter = new MyAdapter(App_up_Data.this, R.layout.item_list,R.layout.item_list_two, newslist,image_Path);
 
         image_button = findViewById(R.id.button2);
-        titile_text = findViewById(R.id.text_title);
+        title_text = findViewById(R.id.text_title);
         come_Back = findViewById(R.id.come_back_find);
         save_data = findViewById(R.id.save_data);
         re_publication = findViewById( R.id.record_publication);
         conte_text = findViewById(R.id.text_content);
         imageView = findViewById(R.id.imageView1);
 
-
-
-//        if(data_image!=null) {
-//            newslist.add(0, data_image);
-//        }
-//        else
-//        {
-//            System.out.println("???");
-//        }
 
         /*
          * @description RecyclerView defiane
@@ -147,7 +137,7 @@ public class App_up_Data extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.lvNews);
-        myAdapter = new MyAdapter(App_up_Data.this, R.layout.item_list, newslist);
+    //    myAdapter = new MyAdapter_0(App_up_Data.this, R.layout.item_list, newslist);
 
 //        LinearLayoutManager llm = new LinearLayoutManager(this);
 //         recyclerView.setLayoutManager(llm);
@@ -185,7 +175,7 @@ public class App_up_Data extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                pu_titile = titile_text.getText().toString();
+                pu_title = title_text.getText().toString();
                 pu_content = conte_text.getText().toString();
 
                 OkHttpClient okHttpClient = new OkHttpClient();
@@ -240,7 +230,7 @@ public class App_up_Data extends AppCompatActivity {
                                         pubilish.put("content",pu_content);
                                         pubilish.put("imageCode",image_code);
                                         pubilish.put("pUserId",Id);
-                                        pubilish.put("title",pu_titile);
+                                        pubilish.put("title",pu_title);
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -323,7 +313,7 @@ public class App_up_Data extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                pu_titile = titile_text.getText().toString();
+                pu_title = title_text.getText().toString();
                 pu_content = conte_text.getText().toString();
 
                 OkHttpClient okHttpClient = new OkHttpClient();
@@ -378,7 +368,7 @@ public class App_up_Data extends AppCompatActivity {
                                             pubilish.put("content",pu_content);
                                             pubilish.put("imageCode",image_code);
                                             pubilish.put("pUserId",Id);
-                                            pubilish.put("title",pu_titile);
+                                            pubilish.put("title",pu_title);
 
                                         } catch (JSONException e) {
                                             e.printStackTrace();
@@ -441,27 +431,22 @@ public class App_up_Data extends AppCompatActivity {
                             });
                         }
                     });
-
                 }
             }
         });
 
-
-//        newslist.add(0, data_image);
-//        myAdapter.notifyItemInserted(0);
-////
-//        myAdapter.notifyItemChanged(0, newslist.size() - 0);
-//        myAdapter.notifyDataSetChanged();
-//
-//
-//        recyclerView = findViewById(R.id.lvNews);
-//        myAdapter = new MyAdapter(MainActivity.this, R.layout.item_list, newslist);
-//
-////        LinearLayoutManager llm = new LinearLayoutManager(this);
-////         recyclerView.setLayoutManager(llm);
-//        GridLayoutManager grm = new GridLayoutManager(this, 4);
-//        recyclerView.setLayoutManager(grm);
-//        recyclerView.setAdapter(myAdapter);
+        /*
+         * @description 发布-草稿
+         * @param
+        */
+        re_publication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_rePub = new Intent(App_up_Data.this,App_up__Datadown.class);
+                intent_rePub.putExtra("APP_Id",Id);
+                startActivity(intent_rePub);
+            }
+        });
 
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override

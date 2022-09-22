@@ -24,19 +24,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.photosharing.MyAdpter.MyAdapter;
+import com.example.photosharing.MyAdpter.MyAdapter_0;
 import com.example.photosharing.R;
 import com.example.photosharing.jsonpare.Data_Path;
 import com.example.photosharing.jsonpare.data_image;
-import com.example.photosharing.main.App_Main;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.FileNameMap;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +45,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okio.BufferedSink;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,7 +61,7 @@ public class FrontFragment extends Fragment {
 
     private int sig_Number =0;
 
-    private MyAdapter myAdapter = null;
+    private MyAdapter_0 myAdapter = null;
     private RecyclerView recyclerView;
 
     private List<com.example.photosharing.jsonpare.data_image> newslist = new ArrayList<>();
@@ -233,7 +228,7 @@ public class FrontFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_from, container, false);
 
         recyclerView = view.findViewById(R.id.lvNews);
-        myAdapter = new MyAdapter(getActivity(),R.layout.item_list,newslist);
+        myAdapter = new MyAdapter_0(getActivity(),R.layout.item_list,newslist);
 
         image_button = view.findViewById(R.id.button2);
 
@@ -333,7 +328,7 @@ public class FrontFragment extends Fragment {
 
 
         recyclerView = view.findViewById(R.id.lvNews);
-        myAdapter = new MyAdapter(getActivity(),R.layout.item_list,newslist);
+        myAdapter = new MyAdapter_0(getActivity(),R.layout.item_list,newslist);
 
 //        LinearLayoutManager llm = new LinearLayoutManager(this);
 //         recyclerView.setLayoutManager(llm);
@@ -359,7 +354,7 @@ public class FrontFragment extends Fragment {
                 } else {
                     //这里就是权限打开之后自己要操作的逻辑
         
-        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+        myAdapter.setOnItemClickListener(new MyAdapter_0.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 if(position==0)

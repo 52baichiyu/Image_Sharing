@@ -20,37 +20,26 @@
         app:itemRippleColor="@null">
 
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="16dp">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2" />
-
         <ImageView
             android:id="@+id/up_data"
-            android:layout_width="44dp"
-            android:layout_height="65dp"
+            android:layout_width="103dp"
+            android:layout_height="56dp"
             android:layout_gravity="center"
-            android:layout_marginTop="330dp"
             android:layout_weight="1"
             android:padding="5dp"
 
             android:src="@drawable/ic_baseline_control_point_24" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2" />
 
-    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
