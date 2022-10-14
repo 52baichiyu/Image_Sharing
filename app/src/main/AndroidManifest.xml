@@ -31,12 +31,14 @@
 
         <!--            Up_Data Ativity-->
         <activity android:name=".Up_Data.App_up_Data"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing">
 
         </activity>
         <activity
             android:name=".Up_Data.App_up__Datadown"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".login.App_Login"
             android:exported="false">
 

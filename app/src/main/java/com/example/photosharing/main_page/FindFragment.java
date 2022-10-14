@@ -13,8 +13,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.photosharing.R;
 
 /**
@@ -26,6 +28,7 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
 
    Button button;
    TextView textView;
+   ImageView imageView;
    int sig = 0;
     public FindFragment() {
 
@@ -39,6 +42,12 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
        textView = view.findViewById(R.id.textView);
        Bundle bundle = getArguments();
        String data = bundle.getString("id","");
+
+       ///test
+//       imageView = view.findViewById(R.id.test);
+//        Glide.with(getActivity()).load(R.drawable.my_jiazai).into(imageView);
+        ///
+
        button.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -47,7 +56,7 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
                   sig = 1;
               }
               else textView.setText("123456");
-
+              imageView.setVisibility(View.GONE);
            }
 
 

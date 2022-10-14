@@ -5,11 +5,10 @@ package com.example.photosharing.main;/*
  */
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +18,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.photosharing.R;
 import com.example.photosharing.Up_Data.App_up_Data;
-import com.example.photosharing.login.App_Login;
+import com.example.photosharing.jsonpare.data_login;
 import com.example.photosharing.main_page.FindFragment;
-import com.example.photosharing.main_page.FrontFragment;
 import com.example.photosharing.main_page.MyFragment;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -32,13 +31,15 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
 
     private static String Id ;
     private static String  apkId;
+    private static data_login data_User;
+
 
     /*
      * @description tab栏参数
      * @param
     */
 
-    ImageView image;
+    Button image;
 
     FiexViewPager viewPager;
     BottomNavigationView bottomNavigationView;
@@ -56,11 +57,18 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
         */
         Intent intent = new Intent();
         intent = getIntent();
-        Id = intent.getStringExtra("Id");
-        apkId = intent.getStringExtra("apkId");
+//        Id = intent.getStringExtra("Id");
+//        apkId = intent.getStringExtra("apkId");
+        String data_for_login = intent.getStringExtra("Data");
+     //   System.out.println(data_user+"???");
 
         ObjectMapper objectMapper = new ObjectMapper();
-
+        try {
+            data_User = objectMapper.readValue(data_for_login,data_login.class);
+            Id = data_User.getData().getId();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         /*
          * @description 
          * @param 

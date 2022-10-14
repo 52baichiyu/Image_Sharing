@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/kk"
+
     android:alpha="1.5">
 
     <EditText
@@ -49,7 +49,7 @@
         android:layout_width="154dp"
         android:layout_height="49dp"
         android:layout_marginBottom="172dp"
-        android:background="@drawable/my_button2"
+        android:background="@drawable/my_button_login"
         android:text="注册"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         android:layout_width="154dp"
         android:layout_height="49dp"
         android:layout_marginBottom="92dp"
-        android:background="@drawable/my_button2"
+        android:background="@drawable/my_button_register"
         android:text="登录"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

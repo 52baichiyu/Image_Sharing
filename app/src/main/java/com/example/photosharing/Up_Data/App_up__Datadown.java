@@ -26,9 +26,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.photosharing.MyAdpter.MyAdapter;
 import com.example.photosharing.MyAdpter.MyAdapter_0;
 import com.example.photosharing.R;
@@ -106,10 +108,17 @@ public class App_up__Datadown extends AppCompatActivity {
     private EditText title;
     private EditText content;
     private ImageView come_Back;
+    private ImageView image_loading;
+    private View lay_test;
 
     private String pu_title;
     private String pu_content;
     private String image_code;
+
+    ///test
+    private int _test=0;
+    ///
+
 
 /*
  * @description item 点击事件
@@ -143,17 +152,31 @@ public class App_up__Datadown extends AppCompatActivity {
         intent=getIntent();
         APP_ID = intent.getStringExtra("APP_Id");
         System.out.println(Uri+APP_ID);
-     //   imageView = findViewById(R.id.imageView);
+
         button = findViewById(R.id.button2);
-      //   uri = "https://guet-lab.oss-cn-hangzhou.aliyuncs.com/api/2022/08/26/cf5fec26-8ff3-4d3d-a16c-7d6310ef4e92.jpeg";
+
         recyclerView = findViewById(R.id.lvNew1);
          mainlooper = Looper.myLooper();
          content = findViewById(R.id.text_content1);
          title = findViewById(R.id.text_title1);
          come_Back = findViewById(R.id.come_back);
-         
-         
-         
+
+         /*
+          * @description 设置Loading过程确保图片加载完成
+          * @param
+         */
+          image_loading = findViewById(R.id.loading_image);
+          lay_test=findViewById(R.id.loading_wait);
+          lay_test.setOnClickListener(null);
+          Glide.with(this).load(R.drawable.my_jiazai).into(image_loading);
+
+        myAdapter = Myadapter(image_Path,bitmapList, App_up__Datadown.this);
+
+        bitmapList.add(0, data_image);
+        myAdapter.notifyItemInserted(0);
+//
+        myAdapter.notifyItemChanged(0, bitmapList.size() - 0);
+        myAdapter.notifyDataSetChanged();
         imageUrlList.add(uri);
 
 
@@ -303,7 +326,9 @@ public class App_up__Datadown extends AppCompatActivity {
         come_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               deleteDirWihtFile(getExternalCacheDir());
                 finish();
+
             }
         });
     }
@@ -349,7 +374,7 @@ public class App_up__Datadown extends AppCompatActivity {
 
      public class Runable implements Runnable
      {
-         data_image bitmap = new data_image();
+
 
          private List<String> imge_ptah = new ArrayList<>();
 
@@ -385,12 +410,6 @@ public class App_up__Datadown extends AppCompatActivity {
 
              Looper.prepare();
               while(flg) {
-
-
-
-
-
-
         /*
          * @description 线程通信
          * @param
@@ -402,36 +421,44 @@ public class App_up__Datadown extends AppCompatActivity {
                           if (msg.what == 1) {
                            //   String uri2 = "https://guet-lab.oss-cn-hangzhou.aliyuncs.com/api/2022/08/26/cf5fec26-8ff3-4d3d-a16c-7d6310ef4e92.jpeg";
                             Save_Image_Data   imageData = (Save_Image_Data) msg.obj;
-                            System.out.println(imageData);
+                         //   System.out.println(imageData);
                             for (int i =0 ;i<imageData.getData().getRecords().get(0).getImageUrlList().size();i++)
                             {
                                 imageUrlList.add(imageData.getData().getRecords().get(0).getImageUrlList().get(i));
+
                             }
-//                              System.out.println(imageUrlList.size());
-//                              System.out.println("succeed");
+                              Path_to_Bitmap[] path_to_bitmap = new Path_to_Bitmap[MAX_DATE];
                               for (int i = 0;i<imageUrlList.size();i++) {
                                   try {
-                                      Path_to_Bitmap path_to_bitmap = new Path_to_Bitmap();
-                                      path_to_bitmap = getBitMap(imageUrlList.get(0));
-                                      bitmap.setImage(path_to_bitmap.getBitmap());
-                                      image_Path.add(path_to_bitmap.getPath());
-//                                      SavaImage(bitmap.getImage(),path_Save);
 
-                                      System.out.println(bitmap);
-                                      bitmaps.add(bitmap);
-                                  } catch (IOException e) {
+                                      path_to_bitmap[i] = getBitMap(imageUrlList.get(i));
+                                  } catch (IOException  e) {
                                       e.printStackTrace();
                                   }
+                                  data_image bitmap = new data_image();
+                                  bitmap.setImage(path_to_bitmap[i].getBitmap());
+                                  image_Path.add(path_to_bitmap[i].getPath());
+                              //    System.out.println(path_to_bitmap[i].getBitmap()+"? "+i);
+                               //   System.out.println(image_Path+"? "+i);
+                                  //bitmaps.add(bitmap);
+                                  Message msg2 = new Message();
+                                  msg2.obj = bitmap;
+
+                                  //      msg2.obj = imge_ptah;
+
+
+                                  if(i==imageUrlList.size()-1)
+                                  {
+                                   _test = 1;
+                                  }
+                                  msg2.arg1 = _test;
+                                  msg2.what = 2;
+                                  handler2.sendMessage(msg2);
                               }
+                             // System.out.println(path_to_bitmap);
 
 
 
-                              Message msg2 = new Message();
-                              msg2.obj = bitmaps;
-                    //      msg2.obj = imge_ptah;
-                              System.out.println(bitmaps.get(0));
-                              msg2.what = 2;
-                              handler2.sendMessage(msg2);
 
 
 
@@ -444,9 +471,8 @@ public class App_up__Datadown extends AppCompatActivity {
 
 
                   myLooper = Looper.myLooper();
-                  System.out.println(flg);
                   stRunning();
-                  System.out.println(flg);
+
               }
                Looper.loop();
 
@@ -519,35 +545,39 @@ public class App_up__Datadown extends AppCompatActivity {
                                     if(msg.what == 2)
                                     {
 
+                                        int sig = msg.arg1;
 
-
-                                        bitmapList = (List<data_image>) msg.obj;
-
-
-                                        System.out.println(bitmapList.get(0));
-                                         myAdapter = Myadapter(image_Path,bitmapList, App_up__Datadown.this);
-
-                                        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
-                                            @Override
-                                            public void onItemClick(int position) {
-                                                if (position == 0) {
-                                                    if(sig_Number<3){
-                                                    Intent intent = new Intent(Intent.ACTION_PICK, null);
-                                                    intent.setDataAndType(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "image/*");
-                                                    startActivityForResult(intent, 2);
-                                                    }
-                                                    else
-                                                    {
-                                                        System.out.println("???");
-                                                    }
-                                                }
-                                            }
-                                        });
-
+                                        bitmapList.add((com.example.photosharing.jsonpare.data_image) msg.obj);
+                                        System.out.println(bitmapList+"?");
+                                        myAdapter.notifyDataSetChanged();
+                                        if(sig==1)
+                                        {
+                                            image_loading.setVisibility(View.GONE);
+                                            lay_test.setVisibility(View.GONE);
+                                        }
+                                    //    System.out.println(bitmapList.get(0));
 
                                     }
+
                                 }
                             };
+
+                            myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(int position) {
+                                    if (position == 0) {
+                                        if(sig_Number<5){
+                                            Intent intent = new Intent(Intent.ACTION_PICK, null);
+                                            intent.setDataAndType(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "image/*");
+                                            startActivityForResult(intent, 2);
+                                        }
+                                        else
+                                        {
+                                            System.out.println("???");
+                                        }
+                                    }
+                                }
+                            });
 
 
                             while(true)
@@ -588,14 +618,11 @@ public class App_up__Datadown extends AppCompatActivity {
     {
         MyAdapter myAdapter =  new MyAdapter(context,R.layout.item_list,R.layout.item_list_two,bitmapList,image_Path);
 
-        bitmapList.add(0, data_image);
+//        bitmapList.add(0, data_image);
         myAdapter.notifyItemInserted(0);
 //
         myAdapter.notifyItemChanged(0, bitmapList.size() - 0);
         myAdapter.notifyDataSetChanged();
-
-
-
         GridLayoutManager gm = new GridLayoutManager(context,4);
         recyclerView.setLayoutManager(gm);
         recyclerView.setAdapter(myAdapter);
@@ -633,24 +660,23 @@ public class App_up__Datadown extends AppCompatActivity {
                     if(bitmap!=null)
                     {
                         data_image = new data_image(bitmap);
-                        System.out.println(bitmapList+"?");
+                   //     System.out.println(bitmapList+"?");
                         bitmapList.add(data_image);
-                        System.out.println(bitmapList+"?");
+                 //       System.out.println(bitmapList+"?");
 
                         Array[sig_Number] = uri_2.toString();
 
                         image_Path.add(getDataColumn(this,uri_2,null,null));
 
                         sig_Number++;
-                        System.out.println(image_Path);
-                        ///   System.out.println(Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(),bitmap,null,null)));
-                        System.out.println(getDataColumn(this,uri_2,null,null));
-                        System.out.println(myAdapter);
+//                        System.out.println(image_Path);
+//                        ///   System.out.println(Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(),bitmap,null,null)));
+//                        System.out.println(getDataColumn(this,uri_2,null,null));
+//                        System.out.println(myAdapter);
                         myAdapter.notifyItemInserted(0);
 
                         myAdapter.notifyItemChanged(0,bitmapList.size()-0);
                         myAdapter.notifyDataSetChanged();
-
                     }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -671,6 +697,7 @@ public class App_up__Datadown extends AppCompatActivity {
 
     public Path_to_Bitmap getBitMap(String path) throws IOException
     {
+        System.out.println(path);
         Path_to_Bitmap path_to_bitmap = new Path_to_Bitmap();
         try {
             /*
@@ -686,8 +713,9 @@ public class App_up__Datadown extends AppCompatActivity {
                 Bitmap bitmap =  BitmapFactory.decodeStream(inputStream);
             //    SavaImage(bitmap, getExternalCacheDir());
      //           SavaImage(bitmap, Environment.getExternalStoragePublicDirectory("Pictures"));
-                 path_to_bitmap.setBitmap(BitmapFactory.decodeFile( SavaImage(bitmap, getExternalCacheDir())));
-                path_to_bitmap.setPath(SavaImage(bitmap, getExternalCacheDir()));
+                String pt = SavaImage(bitmap, getExternalCacheDir());
+                 path_to_bitmap.setBitmap(BitmapFactory.decodeFile(pt ));
+                path_to_bitmap.setPath(pt);
                 return path_to_bitmap;
             }
         } catch (IOException e) {
@@ -758,6 +786,24 @@ public class App_up__Datadown extends AppCompatActivity {
 //        return "com.android.providers.media.documents".equals(uri.getAuthority());
 //    }
 
+/**
+ * @description 清理网络图片缓存
+ * @param
+ * @return null
+ * @author 余
+ * @time 2022/9/26 13:22
+ */
+public static void deleteDirWihtFile(File dir) {
+    if (dir == null || !dir.exists() || !dir.isDirectory())
+        return;
+    for (File file : dir.listFiles()) {
+        if (file.isFile())
+            file.delete(); // 删除所有文件
+        else if (file.isDirectory())
+            deleteDirWihtFile(file); // 递规的方式删除文件夹
+    }
+ //  dir.delete();// 删除目录本身
+}
 
     /**
      * 保存位图到本地
@@ -782,11 +828,14 @@ public class App_up__Datadown extends AppCompatActivity {
             fileOutputStream.close();
 
             String pt = file+"/"+ptah+".jpg";
-System.out.println(pt);
+System.out.println(pt+"?");
             return pt;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
+
+
 }

@@ -445,6 +445,7 @@ public class App_up_Data extends AppCompatActivity {
                 Intent intent_rePub = new Intent(App_up_Data.this,App_up__Datadown.class);
                 intent_rePub.putExtra("APP_Id",Id);
                 startActivity(intent_rePub);
+                overridePendingTransition(R.anim.actity_open,R.anim.actity_end);
             }
         });
 

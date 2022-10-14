@@ -10,6 +10,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,15 +21,7 @@
         app:itemRippleColor="@null">
 
 
-        <ImageView
-            android:id="@+id/up_data"
-            android:layout_width="103dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:padding="5dp"
 
-            android:src="@drawable/ic_baseline_control_point_24" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
@@ -36,8 +29,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="16dp"
-        app:layout_constraintBottom_toBottomOf="parent">
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/up_data"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="168dp"
+            android:layout_marginBottom="0dp"
+
+            android:layout_weight="1"
+            android:background="@drawable/up"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

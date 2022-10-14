@@ -117,7 +117,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@drawable/my_button"
+        android:background="@drawable/my_button_login"
         android:text="登录"
         android:textColor="@color/teal_700"
         tools:ignore="TouchTargetSizeCheck" />
@@ -128,7 +128,7 @@
         android:layout_height="42dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:background="@drawable/my_button2"
+        android:background="@drawable/my_button_register"
         android:text="注册"
         android:textColor="#548C8C"
         tools:ignore="TouchTargetSizeCheck" />
