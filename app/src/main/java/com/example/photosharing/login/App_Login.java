@@ -257,6 +257,7 @@ public class App_Login extends AppCompatActivity {
                                 if(data.getCode()==200) {
                                     Intent intent = new Intent(App_Login.this, App_Main.class);
                                     intent.putExtra("Data", res);
+
                                   //  intent.putExtra("apkId", data.getData().getAppKey());
                                     finish();
                                     startActivity(intent);

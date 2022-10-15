@@ -26,24 +26,55 @@
         <entry key="..\:/CCC/Android_Project/PhotoSharing/app/src/main/res/layout/fragment_from.xml" value="0.225" />
         <entry key="..\:/CCC/Android_Project/PhotoSharing/app/src/main/res/layout/fragment_my.xml" value="0.18489583333333334" />
         <entry key="..\:/CCC/Android_Project/PhotoSharing/app/src/main/res/menu/navigetion.xml" value="0.67" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable-v24/ic_baseline_keyboard_arrow_left_24.xml" value="0.291" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/actity_open.xml" value="0.2355" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/back.xml" value="0.2905" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/background.xml" value="0.2335" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/del_image.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_control_point_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_lock_open_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_visibility_24.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.2905" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2325" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2905" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/image_bg.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/image_style.xml" value="0.192" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_add.xml" value="0.193" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button.xml" value="0.2325" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button2.xml" value="0.2325" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button3.xml" value="0.2355" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button_load.xml" value="0.193" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button_login.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button_register.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button_save.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_button_up.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_editext_content.xml" value="0.2905" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_input.xml" value="0.192" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_input2.xml" value="0.2315" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/my_text.xml" value="0.2325" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/topfragment.xml" value="0.2905" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/drawable/up.xml" value="0.2365" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/activity_item_details.xml" value="0.29713552800342025" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/activity_main.xml" value="0.225" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_login.xml" value="0.225" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_main.xml" value="0.362876254180602" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_up_data.xml" value="0.33" />
-        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_up_data_dow.xml" value="0.2418478260869565" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_up_data_dow.xml" value="0.22" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/app_user_register.xml" value="0.22135416666666666" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/comment_item.xml" value="0.29713552800342025" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_blank.xml" value="0.29713552800342025" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_blank2.xml" value="0.29713552800342025" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_find.xml" value="0.29713552800342025" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_from.xml" value="0.3619791666666667" />
-        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
-        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/item_list_two.xml" value="0.67" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/fragment_my.xml" value="0.29713552800342025" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/item_list.xml" value="0.75" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/item_list_two.xml" value="0.18" />
+        <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/list_item.xml" value="0.29713552800342025" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/layout/test.xml" value="0.1425925925925926" />
         <entry key="..\:/CCC/Git/Image_Sharing/app/src/main/res/menu/navigetion.xml" value="0.25" />
       </map>

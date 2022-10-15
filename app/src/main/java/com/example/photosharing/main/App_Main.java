@@ -32,7 +32,7 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
     private static String Id ;
     private static String  apkId;
     private static data_login data_User;
-
+    private static String _userName;
 
     /*
      * @description tab栏参数
@@ -66,6 +66,8 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
         try {
             data_User = objectMapper.readValue(data_for_login,data_login.class);
             Id = data_User.getData().getId();
+            _userName = data_User.getData().getUsername();
+
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -101,8 +103,8 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
 
 
          Bundle bundle = new Bundle();
-         bundle.putString("id","love");
-
+         bundle.putString("id",Id);
+         bundle.putString("userName",_userName);
          /*
           * @description 页面切换
           * @param

@@ -41,11 +41,19 @@
             android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".login.App_Login"
             android:exported="false">
-
-
-
-
         </activity>
+
+        <activity android:name=".fornt_find.itemDetails"
+            android:exported="false"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+        </activity>
+
+
+
+
         <activity
             android:name=".main.App_Main"
             android:exported="false" />
