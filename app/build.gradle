@@ -34,7 +34,14 @@ dependencies {
     //Glide，一个被google所推荐的图片加载库
 
     implementation 'com.github.bumptech.glide:glide:4.13.2'
- //   implementation files('libs\\glide-3.6.0.jar')
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    ///
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    ///
+
+    //   implementation files('libs\\glide-3.6.0.jar')
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
     //gson 库

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+
+            android:layout_alignParentLeft="true"
+
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/tv_createTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="createTime"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+
+            android:layout_below="@id/tv_username"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="5dp"
+            tools:ignore="MissingConstraints" />
+<!--        <Button-->
+<!--            android:id="@+id/bt_focus"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:background="@color/white"-->
+<!--            android:text="+关注"-->
+<!--            android:textColor="@color/teal_200"-->
+<!--            android:textSize="15dp"-->
+<!--            android:layout_alignParentRight="true"-->
+
+<!--            tools:ignore="MissingConstraints" />-->
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+
+            />
+<ImageView
+    android:id="@+id/iv_lastPhoto"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:src="@drawable/ic_baseline_keyboard_arrow_left_24"
+    android:layout_marginTop="140dp"
+    />
+        <ImageView
+            android:id="@+id/iv_nextPhoto"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="360dp"
+
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_image"
+            android:paddingTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_content"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_title"
+            android:paddingStart="8dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/black" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@android:color/black" />
+
+
+        <!--        传该shareId到详情页中作为接口请求的参数-->
+        <TextView
+            android:id="@+id/tv_shareId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+<!--        传该图片地址到详情页中显示图片-->
+        <TextView
+            android:id="@+id/tv_imageDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+<!--        <TextView-->
+<!--            android:id="@+id/tv_imageArray"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:visibility="gone"/>-->
+        <TextView
+            android:id="@+id/tv_likeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_focusUserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_tvhasFocus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+        />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
