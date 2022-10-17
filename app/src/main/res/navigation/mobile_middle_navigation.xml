@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_middle_navigation"
+    app:startDestination="@+id/navigation_dynamic">
+
+    <fragment
+        android:id="@+id/navigation_dynamic"
+        android:name="com.example.photosharing.main_page.MyF_DynamicFragment"
+        tools:layout="@layout/fragment_dynamic" />
+
+    <fragment
+        android:id="@+id/navigation_collect"
+        android:name="com.example.photosharing.main_page.MyF_CollectFragment"
+        tools:layout="@layout/fragment_collect" />
+
+    <fragment
+        android:id="@+id/navigation_dianzan"
+        android:name="com.example.photosharing.main_page.MyF_DianzanFragment"
+        tools:layout="@layout/fragment_dianzan" />
+</navigation>

@@ -6,8 +6,10 @@ package com.example.photosharing.jsonpare;/*
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 
-public class data_login {
+
+public class data_login implements Serializable {
     @JsonProperty("code")
     private Integer code;
     @JsonProperty("msg")

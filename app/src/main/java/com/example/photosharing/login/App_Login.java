@@ -18,7 +18,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.photosharing.ActivityCollector;
+import com.example.photosharing.App_close;
 import com.example.photosharing.R;
+import com.example.photosharing.constant.Constant;
 import com.example.photosharing.jsonpare.data_login;
 import com.example.photosharing.main.App_Main;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,7 +38,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class App_Login extends AppCompatActivity {
+public class App_Login extends App_close {
 
 
     private final int SIG=1, SIG2=0;
@@ -48,6 +51,7 @@ public class App_Login extends AppCompatActivity {
     SharedPreferences.Editor r_information1;
 
     private String acc ,pas;
+
 
   //  private static String START_Main = "Start_Main";
     /**
@@ -65,6 +69,9 @@ public class App_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_login);
         Intent intent = getIntent();
+
+
+
         //intent.getStringExtra(MainActivity.START_LOBIN);
         /*
          * @description View-Components geting data
@@ -204,8 +211,8 @@ public class App_Login extends AppCompatActivity {
                 OkHttpClient client = new OkHttpClient();
 
                 Headers headers = new Headers.Builder()
-                        .add("appId","fdf96a0eb7fd451abcbd4f2509a3309f")
-                        .add("appSecret","778851a88e4675f11429ea6aff0be2d99bf6a")
+                        .add("appId", Constant.APP_ID)
+                        .add("appSecret",Constant.APP_SECRET)
                         .build();
 
                 FormBody formBody  = new FormBody.Builder()
@@ -259,6 +266,7 @@ public class App_Login extends AppCompatActivity {
                                     intent.putExtra("Data", res);
 
                                   //  intent.putExtra("apkId", data.getData().getAppKey());
+                                    ActivityCollector.removeActivity(App_Login.this);
                                     finish();
                                     startActivity(intent);
                                 }

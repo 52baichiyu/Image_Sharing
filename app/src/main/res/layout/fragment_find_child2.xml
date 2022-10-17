@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lv_news_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <RelativeLayout
+            android:id="@+id/null_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/null_prompt_text"
+                    android:layout_width="199dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentStart="true"
+
+
+                    android:layout_alignParentBottom="true"
+                    android:text="关注为空！"
+                    android:textColor="#919191"
+                    android:textSize="30sp"
+                    android:gravity="center"
+                    android:layout_marginStart="106dp"
+                    android:layout_marginBottom="408dp"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </TextView>
+        </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

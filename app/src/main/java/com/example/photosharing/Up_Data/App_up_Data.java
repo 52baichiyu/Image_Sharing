@@ -22,9 +22,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.photosharing.ActivityCollector;
+import com.example.photosharing.App_close;
 import com.example.photosharing.MyAdpter.MyAdapter;
 import com.example.photosharing.MyAdpter.MyAdapter_0;
 import com.example.photosharing.R;
+import com.example.photosharing.constant.Constant;
 import com.example.photosharing.jsonpare.Data_Path;
 import com.example.photosharing.jsonpare.Data_pubilish;
 import com.example.photosharing.jsonpare.data_image;
@@ -51,7 +54,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class App_up_Data extends AppCompatActivity {
+public class App_up_Data extends App_close {
 
 
 
@@ -164,8 +167,6 @@ public class App_up_Data extends AppCompatActivity {
                     App_up_Data.this.requestPermissions(permissions, REQUEST_CODE_CONTACT);
                     return ;
                 } else {
-
-         
                     /*
                      * @description 发布内容 入口
                      * @param 
@@ -181,8 +182,8 @@ public class App_up_Data extends AppCompatActivity {
                 OkHttpClient okHttpClient = new OkHttpClient();
 
                 Headers headers = new Headers.Builder()
-                        .add("appId", "fdf96a0eb7fd451abcbd4f2509a3309f")
-                        .add("appSecret", "778851a88e4675f11429ea6aff0be2d99bf6a")
+                        .add("appId", Constant.APP_ID)
+                        .add("appSecret", Constant.APP_SECRET)
                         .build();
 
                 String uri = "http://47.107.52.7:88/member/photo/image/upload";
@@ -270,6 +271,7 @@ public class App_up_Data extends AppCompatActivity {
                                                              if(data_pubilish.getCode()==200)
                                                              {
                                                                  Toast.makeText(App_up_Data.this, "发布成功！", Toast.LENGTH_SHORT).show();
+                                                                 ActivityCollector.removeActivity(App_up_Data.this);
                                                                  finish();
                                                              }
                                                              else
@@ -301,6 +303,8 @@ public class App_up_Data extends AppCompatActivity {
         come_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                ActivityCollector.removeActivity(App_up_Data.this);
                 finish();
             }
         });
@@ -319,8 +323,8 @@ public class App_up_Data extends AppCompatActivity {
                 OkHttpClient okHttpClient = new OkHttpClient();
 
                 Headers headers = new Headers.Builder()
-                        .add("appId", "fdf96a0eb7fd451abcbd4f2509a3309f")
-                        .add("appSecret", "778851a88e4675f11429ea6aff0be2d99bf6a")
+                        .add("appId", Constant.APP_ID)
+                        .add("appSecret", Constant.APP_SECRET)
                         .build();
 
                 String uri = "http://47.107.52.7:88/member/photo/image/upload";
@@ -453,9 +457,12 @@ public class App_up_Data extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 if (position == 0) {
-                    Intent intent = new Intent(Intent.ACTION_PICK, null);
-                    intent.setDataAndType(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "image/*");
-                    startActivityForResult(intent, 2);
+                    if(sig_Number<5) {
+                        Intent intent = new Intent(Intent.ACTION_PICK, null);
+                        intent.setDataAndType(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "image/*");
+                        startActivityForResult(intent, 2);
+                    }
+                    else  System.out.println("???");
                 }
             }
         });

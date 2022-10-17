@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.photosharing.App_close;
 import com.example.photosharing.R;
 import com.example.photosharing.Up_Data.App_up_Data;
 import com.example.photosharing.jsonpare.data_login;
@@ -27,12 +28,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 
-public class App_Main extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
+public class App_Main extends App_close implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
 
     private static String Id ;
     private static String  apkId;
     private static data_login data_User;
     private static String _userName;
+    private static String _userSex;
+    private static String _userIntrod;
+    private static String _userAvatar;
+
+    private static App_Main app_main;
 
     /*
      * @description tab栏参数
@@ -44,13 +50,13 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
     FiexViewPager viewPager;
     BottomNavigationView bottomNavigationView;
     FindFragment findFragment = new FindFragment();
-//    FrontFragment frontFragment = new FrontFragment();
+  //  FrontFragment frontFragment = new FrontFragment();
     MyFragment myFragment = new MyFragment();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_main);
-   
+       app_main = this;
         /*
          * @description 活动间传递数据
          * @param null
@@ -67,7 +73,9 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
             data_User = objectMapper.readValue(data_for_login,data_login.class);
             Id = data_User.getData().getId();
             _userName = data_User.getData().getUsername();
-
+            _userSex = (String) data_User.getData().getSex();
+            _userIntrod = (String) data_User.getData().getIntroduce();
+            _userAvatar = (String) data_User.getData().getAvatar();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -103,8 +111,12 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
 
 
          Bundle bundle = new Bundle();
+         bundle.putString("sex",_userSex);
+         bundle.putString("introdce",_userIntrod);
+         bundle.putString("avatar",_userAvatar);
          bundle.putString("id",Id);
          bundle.putString("userName",_userName);
+         bundle.putSerializable("data", data_User);
          /*
           * @description 页面切换
           * @param
@@ -113,11 +125,13 @@ public class App_Main extends AppCompatActivity implements BottomNavigationView.
              @NonNull
              @Override
              public Fragment getItem(int position) {
+                 findFragment.setArguments(bundle);
+                 myFragment.setArguments(bundle);
                  if(position!=3)
                  switch (position)
                  {
 //                     case 1:  return frontFragment;
-                     case 0: findFragment.setArguments(bundle); return findFragment;
+                     case 0:  return findFragment;
                      case 1:return myFragment;
                  }
                  return null;

@@ -10,11 +10,12 @@
 <!--        android:orderInCategory="1"-->
 <!--        android:id="@+id/na_up"-->
 <!--        android:icon="@drawable/ic_baseline_control_point_24"-->
-<!--        />-->
-        <item android:title=""
-            android:icon="@null">
+        />
+    <item
+        android:title=""
+        android:icon="@null">
+    </item>
 
-        </item>
     <item android:title="我"
         android:orderInCategory="1"
         android:id="@+id/na_seif"

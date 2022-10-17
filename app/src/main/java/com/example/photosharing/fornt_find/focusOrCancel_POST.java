@@ -129,7 +129,10 @@ public class focusOrCancel_POST {
                     '}';
         }
     }
-
+/*
+ * @description 取消关注
+ * @param 
+*/
      void post1(String focusUserId,String userId){
         new Thread(() -> {
             System.out.println("focusUserId为："+focusUserId);

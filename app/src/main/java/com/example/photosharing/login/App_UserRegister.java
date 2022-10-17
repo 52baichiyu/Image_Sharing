@@ -13,7 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.photosharing.ActivityCollector;
+import com.example.photosharing.App_close;
 import com.example.photosharing.R;
+import com.example.photosharing.constant.Constant;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +33,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class App_UserRegister  extends AppCompatActivity {
+public class App_UserRegister  extends App_close {
 
     private final String url = "http://47.107.52.7:88";
 
@@ -57,6 +60,7 @@ public class App_UserRegister  extends AppCompatActivity {
       bt_rebackLogin.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+              ActivityCollector.removeActivity(App_UserRegister.this);
               finish();
           }
       });
@@ -84,8 +88,8 @@ public class App_UserRegister  extends AppCompatActivity {
                     OkHttpClient client = new OkHttpClient();
 
                     Headers headers = new Headers.Builder()
-                            .add("appId","fdf96a0eb7fd451abcbd4f2509a3309f")
-                            .add("appSecret","778851a88e4675f11429ea6aff0be2d99bf6a")
+                            .add("appId", Constant.APP_ID)
+                            .add("appSecret",Constant.APP_SECRET)
                             .build();
 
                     FormBody formBody  = new FormBody.Builder()
@@ -132,9 +136,6 @@ public class App_UserRegister  extends AppCompatActivity {
                                     int a = 0 ,c=0;
                                     String b="200" ,attr = null;
 
-
-
-
                                     System.out.println(res);
                                     for(String att : res.split("\"|:|,| "))
                                     {
@@ -150,6 +151,7 @@ public class App_UserRegister  extends AppCompatActivity {
 
                                     if(b.equals("200")) {
                                         Toast.makeText(App_UserRegister.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                                        ActivityCollector.removeActivity(App_UserRegister.this);
                                         finish();
                                     }
                                     else

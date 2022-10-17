@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:orderInCategory="0"
+        android:id="@+id/navigation_dynamic"
+        android:title="动态" />
+
+
+    <item
+        android:orderInCategory="1"
+        android:id="@+id/navigation_collect"
+        android:title="收藏" />
+
+    <item
+        android:orderInCategory="2"
+        android:id="@+id/navigation_dianzan"
+        android:title="赞过" />
+
+</menu>

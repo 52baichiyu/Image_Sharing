@@ -31,6 +31,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.photosharing.ActivityCollector;
+import com.example.photosharing.App_close;
 import com.example.photosharing.MyAdpter.MyAdapter;
 import com.example.photosharing.MyAdpter.MyAdapter_0;
 import com.example.photosharing.R;
@@ -69,7 +71,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class App_up__Datadown extends AppCompatActivity {
+public class App_up__Datadown extends App_close {
     private static final String DIRECTORY_PICTURES = "Pictures";
     private static final String TAG = "1";
     private final List<String> imageUrlList = new Vector<>();
@@ -204,8 +206,8 @@ public class App_up__Datadown extends AppCompatActivity {
                     OkHttpClient okHttpClient = new OkHttpClient();
 
                     Headers headers = new Headers.Builder()
-                            .add("appId", "fdf96a0eb7fd451abcbd4f2509a3309f")
-                            .add("appSecret", "778851a88e4675f11429ea6aff0be2d99bf6a")
+                            .add("appId", Constant.APP_ID)
+                            .add("appSecret", Constant.APP_SECRET)
                             .build();
 
                     String uri = "http://47.107.52.7:88/member/photo/image/upload";
@@ -293,6 +295,7 @@ public class App_up__Datadown extends AppCompatActivity {
                                                             }
                                                             if (data_pubilish.getCode() == 200) {
                                                                 Toast.makeText(App_up__Datadown.this, "发布成功！", Toast.LENGTH_SHORT).show();
+                                                                ActivityCollector.removeActivity(App_up__Datadown.this);
                                                                 finish();
                                                             } else {
                                                                 Toast.makeText(App_up__Datadown.this, data_pubilish.getMsg(), Toast.LENGTH_SHORT).show();
@@ -327,8 +330,9 @@ public class App_up__Datadown extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                deleteDirWihtFile(getExternalCacheDir());
-                finish();
 
+                ActivityCollector.removeActivity(App_up__Datadown.this);
+                finish();
             }
         });
     }
@@ -645,16 +649,7 @@ public class App_up__Datadown extends AppCompatActivity {
             {
                 uri_2 = data.getData();
                 sig_Number = bitmapList.size()-1;
-                for(int i = 1 ;i<bitmapList.size();i++)
-                {
-//                    try {
-//                    //    Uri uri_1 = android.net.Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(),bitmapList.get(i), null,null));
-//                        image_Path.add(getDataColumn(this,uri_1,null,null));
-//                    } catch (FileNotFoundException e) {
-//                        e.printStackTrace();
-//                    }
 
-                }
                 try {
                     Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri_2));
                     if(bitmap!=null)
@@ -669,10 +664,7 @@ public class App_up__Datadown extends AppCompatActivity {
                         image_Path.add(getDataColumn(this,uri_2,null,null));
 
                         sig_Number++;
-//                        System.out.println(image_Path);
-//                        ///   System.out.println(Uri.parse(MediaStore.Images.Media.insertImage(getContentResolver(),bitmap,null,null)));
-//                        System.out.println(getDataColumn(this,uri_2,null,null));
-//                        System.out.println(myAdapter);
+
                         myAdapter.notifyItemInserted(0);
 
                         myAdapter.notifyItemChanged(0,bitmapList.size()-0);
@@ -711,8 +703,7 @@ public class App_up__Datadown extends AppCompatActivity {
             if(con.getResponseCode()==200) {
                 InputStream inputStream =con.getInputStream();
                 Bitmap bitmap =  BitmapFactory.decodeStream(inputStream);
-            //    SavaImage(bitmap, getExternalCacheDir());
-     //           SavaImage(bitmap, Environment.getExternalStoragePublicDirectory("Pictures"));
+
                 String pt = SavaImage(bitmap, getExternalCacheDir());
                  path_to_bitmap.setBitmap(BitmapFactory.decodeFile(pt ));
                 path_to_bitmap.setPath(pt);
@@ -762,29 +753,7 @@ public class App_up__Datadown extends AppCompatActivity {
         return null;
     }
 
-//    /**
-//     * @param uri The Uri to check.
-//     * @return Whether the Uri authority is ExternalStorageProvider.
-//     */
-//    private static boolean isExternalStorageDocument(Uri uri) {
-//        return "com.android.externalstorage.documents".equals(uri.getAuthority());
-//    }
-//
-//    /**
-//     * @param uri The Uri to check.
-//     * @return Whether the Uri authority is DownloadsProvider.
-//     */
-//    private static boolean isDownloadsDocument(Uri uri) {
-//        return "com.android.providers.downloads.documents".equals(uri.getAuthority());
-//    }
-//
-//    /**
-//     * @param uri The Uri to check.
-//     * @return Whether the Uri authority is MediaProvider.
-//     */
-//    private static boolean isMediaDocument(Uri uri) {
-//        return "com.android.providers.media.documents".equals(uri.getAuthority());
-//    }
+
 
 /**
  * @description 清理网络图片缓存

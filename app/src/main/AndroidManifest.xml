@@ -35,6 +35,13 @@
             android:windowSoftInputMode="adjustNothing">
 
         </activity>
+        <activity android:name=".Personal_center.Edit_imformation"
+            android:exported="false">
+        </activity>
+        <activity android:name=".Personal_center.Personnal_data"
+               android:exported="false"
+            >
+         </activity>
         <activity
             android:name=".Up_Data.App_up__Datadown"
             android:exported="false"
@@ -42,7 +49,10 @@
         <activity android:name=".login.App_Login"
             android:exported="false">
         </activity>
+<activity android:name=".Personal_center.Personnal_center"
+    android:exported="false">
 
+</activity>
         <activity android:name=".fornt_find.itemDetails"
             android:exported="false"
             >

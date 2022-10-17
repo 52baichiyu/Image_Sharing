@@ -6,8 +6,10 @@ package com.example.photosharing.jsonpare;/*
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 
-public class DataDTOX {
+
+public class DataDTOX implements Serializable {
     @JsonProperty("id")
     private String id;
     @JsonProperty("appKey")
@@ -15,13 +17,13 @@ public class DataDTOX {
     @JsonProperty("username")
     private String username;
     @JsonProperty("password")
-    private Object password;
+    private String password;
     @JsonProperty("sex")
-    private Object sex;
+    private String sex;
     @JsonProperty("introduce")
-    private Object introduce;
+    private String introduce;
     @JsonProperty("avatar")
-    private Object avatar;
+    private String avatar;
     @JsonProperty("createTime")
     private String createTime;
     @JsonProperty("lastUpdateTime")
@@ -30,7 +32,7 @@ public class DataDTOX {
     public DataDTOX() {
     }
 
-    public DataDTOX(String id, String appKey, String username, Object password, Object sex, Object introduce, Object avatar, String createTime, String lastUpdateTime) {
+    public DataDTOX(String id, String appKey, String username, String password, String sex, String introduce, String avatar, String createTime, String lastUpdateTime) {
         this.id = id;
         this.appKey = appKey;
         this.username = username;
@@ -66,35 +68,35 @@ public class DataDTOX {
         this.username = username;
     }
 
-    public Object getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Object password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public Object getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Object sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public Object getIntroduce() {
+    public String getIntroduce() {
         return introduce;
     }
 
-    public void setIntroduce(Object introduce) {
+    public void setIntroduce(String introduce) {
         this.introduce = introduce;
     }
 
-    public Object getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Object avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

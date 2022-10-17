@@ -15,9 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.photosharing.App_close;
 import com.example.photosharing.R;
 import com.example.photosharing.constant.Constant;
 import com.example.photosharing.main_page.FindFragment;
+import com.example.photosharing.main_page.FindFragment_child;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -38,7 +40,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class itemDetails extends AppCompatActivity {
+public class itemDetails extends App_close {
     private String body;
     private String shareId;
     private String userId;
@@ -81,13 +83,13 @@ public class itemDetails extends AppCompatActivity {
         setContentView(R.layout.activity_item_details);
 
         Intent intent=getIntent();
-        userId=intent.getStringExtra(FindFragment.MESSAGE_USERID);
-        shareId=intent.getStringExtra(FindFragment.MESSAGE_SHAREID);
-        userName=intent.getStringExtra(FindFragment.MESSAGE_USERNAME);
+        userId=intent.getStringExtra(FindFragment_child.MESSAGE_USERID);
+        shareId=intent.getStringExtra(FindFragment_child.MESSAGE_SHAREID);
+        userName=intent.getStringExtra(FindFragment_child.MESSAGE_USERNAME);
 
 //        图片URL，用于在详情页中加载图片
 //        imageDetails=intent.getStringExtra(Find.MESSAGE_IMAGE);
-        imageArray=intent.getStringArrayExtra(FindFragment.MESSAGE_IMAGE);
+        imageArray=intent.getStringArrayExtra(FindFragment_child.MESSAGE_IMAGE);
         for(int i=0;i<imageArray.length;i++){
             System.out.println("详情页的图片数组："+imageArray[i]);
         }

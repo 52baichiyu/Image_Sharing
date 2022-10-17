@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.example.photosharing.login.App_Login;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends App_close {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

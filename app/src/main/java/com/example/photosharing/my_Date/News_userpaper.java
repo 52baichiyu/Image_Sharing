@@ -1,22 +1,41 @@
 package com.example.photosharing.my_Date;
+import org.json.JSONArray;
 
-public class News {
+public class News_userpaper {
     private String title;
     private String content;
     private String image;
     private String shareId;
     private String likeId;
+    private String collectId;
     private String username;
     private String createTime;
     private String hasFocus;
-    private String [] imageArray;
+    private JSONArray imageArray;
+    private String likeNum;
+    private String collectNum;
 
+    public String getLikeNum() {
+        return likeNum;
+    }
 
-    public String[] getImageArray() {
+    public void setLikeNum(String likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public String getCollectNum() {
+        return collectNum;
+    }
+
+    public void setCollectNum(String collectNum) {
+        this.collectNum = collectNum;
+    }
+
+    public JSONArray getImageArray() {
         return imageArray;
     }
 
-    public void setImageArray(String[] imageArray) {
+    public void setImageArray(JSONArray imageArray) {
         this.imageArray = imageArray;
     }
 
@@ -91,5 +110,13 @@ public class News {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getCollectId() {
+        return collectId;
+    }
+
+    public void setCollectId(String collectId) {
+        this.collectId = collectId;
     }
 }
