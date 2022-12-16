@@ -42,6 +42,13 @@
                android:exported="false"
             >
          </activity>
+
+        <activity android:name=".login.App_jump"
+            android:exported="false"
+            >
+
+        </activity>
+
         <activity
             android:name=".Up_Data.App_up__Datadown"
             android:exported="false"

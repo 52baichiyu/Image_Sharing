@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -80,61 +81,72 @@ public class MyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         mTableLayout=view.findViewById(R.id.my_2);
         mViewPager=view.findViewById(R.id.my_paper1);
-        //标题栏数组
         mTitle = new ArrayList<>();
         mTitle.add("动态");
+        mTitle.add("");
         mTitle.add("收藏");
+        mTitle.add("");
         mTitle.add("点赞");
+
         //fragment集合
         mFragment = new ArrayList<>();
         mFragment.add(new MyF_DynamicFragment());
         mFragment.add(new MyF_CollectFragment());
+        mFragment.add(new MyF_CollectFragment());
+        mFragment.add(new MyF_CollectFragment());
         mFragment.add(new MyF_DianzanFragment());
+
         //在activity中使用 getSupportFragmentManager(),这里是Fragment中使用如下方法
-        adapter = new MyAdapter2(getFragmentManager());
+        adapter = new MyAdapter2(getFragmentManager(),mTitle,mFragment);
         System.out.println(mViewPager+"!!");
         mViewPager.setAdapter(adapter);
         //将TabLayout和ViewPager绑定在一起，一个动另一个也会跟着动
         mTableLayout.setupWithViewPager(mViewPager);
 
-
     }
     class MyAdapter2 extends FragmentPagerAdapter {
-
-        public MyAdapter2(FragmentManager fm) {
+        private List<String> mTitle1;
+        private List<Fragment> mFragment1;
+        public MyAdapter2(FragmentManager fm,List<String> mTitle,List<Fragment> mFragment) {
             super(fm);
+            this.mFragment1=mFragment;
+            this.mTitle1=mTitle;
         }
         //获得每个页面的下标
 
+
+
+
         @Override
         public Fragment getItem(int position) {
-            Fragment fragment = mFragment.get(position);
 
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("data",mParam1);
+                Fragment fragment = mFragment1.get(position);
+                System.out.println(position + " MyFragemnt 113");
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("data", mParam1);
+                fragment.setArguments(bundle);
 
-            fragment.setArguments(bundle);
-            return mFragment.get(position);
+                return fragment;
+
         }
         //获得List的大小
         @Override
         public int getCount() {
-            return mFragment.size();
+            return mFragment1.size();
         }
         //获取title的下标
         @Override
         public CharSequence getPageTitle(int position) {
-            return mTitle.get(position);
+            return mTitle1.get(position);
         }
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //标题栏数组
         System.out.println("创建UserFragment");
         if (getArguments() != null) {
             bundle = getArguments();
@@ -142,6 +154,8 @@ public class MyFragment extends Fragment {
             //在不需点击跳转的情况下，使用静态变量向子fragement传递数据（用户id）
             System.out.println(mParam1+"!");
         }
+
+
 
     }
 
@@ -195,6 +209,7 @@ public class MyFragment extends Fragment {
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
+                    System.out.println("198");
                     if(result.getResultCode() == Activity.RESULT_OK) {
                         // There are no request codes
                         Intent data = result.getData();
@@ -203,6 +218,7 @@ public class MyFragment extends Fragment {
                         Bundle bundle = data.getExtras();
 
                         boolean flag = bundle.getBoolean("flag");
+                        System.out.println(flag+"206");
                         if(flag){
                             String temp_userName = bundle.getString("userName");
                             int temp_sex = bundle.getInt("sex");

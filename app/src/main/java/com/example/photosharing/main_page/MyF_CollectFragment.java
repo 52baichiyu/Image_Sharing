@@ -97,6 +97,9 @@ public class MyF_CollectFragment extends Fragment {
 //        return fragment;
 //    }
 
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,13 +107,13 @@ public class MyF_CollectFragment extends Fragment {
         data = (data_login) bundle.getSerializable("data");
         mParam1 = data.getData().getId();
 
-        try {
-            //等待get方法执行完在继续执行程序
-            get();
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //等待get方法执行完在继续执行程序
+//            get();
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -118,7 +121,14 @@ public class MyF_CollectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        System.out.println("Clollter + 121");
+        try {
+            //等待get方法执行完在继续执行程序
+            get();
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         View rootView = inflater.inflate(R.layout.fragment_collect,container,false);
         test_1 = rootView.findViewById(R.id.null_prompt);
@@ -131,13 +141,11 @@ public class MyF_CollectFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         System.out.println("进入设置适配器");
 
-        newsAdapterUser = new NewsAdapter_user(rootView.getContext(),R.layout.list_item, newsUserpaperList,mParam1,flag);//getContext()?
+        newsAdapterUser = new NewsAdapter_user(rootView.getContext(),R.layout.list_item_2, newsUserpaperList,mParam1,flag);//getContext()?
         newsAdapterUser.setOnItemDeleteListener(new NewsAdapter_user.OnItemDeleteListener() {
             @Override
             public void onDelete(int id) {
                 newsAdapterUser.remove(id);
-
-
             }
         });
         recyclerView.setAdapter(newsAdapterUser);
@@ -234,7 +242,7 @@ public class MyF_CollectFragment extends Fragment {
         JSONObject jsonObject = new JSONObject(body)
                 .getJSONObject("data");
         JSONArray jsonArray = jsonObject.getJSONArray("records");
-        System.out.println("获取的新闻个数" + jsonArray.length());
+        System.out.println("获取的新闻个数" + jsonArray.length() + "Clollect 242");
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject2 = (JSONObject) jsonArray.opt(i);
             News_userpaper newsUserpaper = new News_userpaper();
@@ -251,8 +259,9 @@ public class MyF_CollectFragment extends Fragment {
             String image = (String) imageArray.opt(0);
             newsUserpaper.setImage(image);
             newsUserpaperList.add(0,newsUserpaper);
-            System.out.println(jsonObject2.getString("collectId")+" " );
+//            System.out.println(jsonObject2.getString("collectId")+" " );
         }
+
         }
         else {
             if (newsUserpaperList.size() != 0) {
@@ -260,7 +269,6 @@ public class MyF_CollectFragment extends Fragment {
                     newsUserpaperList.remove(newsUserpaperList.size() - 1);
                 }
                 //System.out.println(newsList.size());
-
                 test_1.setVisibility(View.VISIBLE);
                 test_2.setVisibility(View.VISIBLE);
             }
@@ -277,7 +285,7 @@ public class MyF_CollectFragment extends Fragment {
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         if (enter&&!_isGetData)
         {
-
+            get();
         }
         else {
             _isGetData =false;
@@ -296,7 +304,7 @@ public class MyF_CollectFragment extends Fragment {
     public void onResume() {
         if(!_isGetData)
         {
-            get();
+
             _isGetData = true;
         }
         super.onResume();

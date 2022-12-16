@@ -322,26 +322,20 @@ public class FindFragment_child2 extends Fragment implements View.OnClickListene
                 JSONArray imageArray = jsonObject2.getJSONArray("imageUrlList");
                 System.out.println("长度：" + imageArray.length());
                 String image = (String) imageArray.opt(0);
-
-                String[] ImageArray = new String[imageArray.length()];
-                for (int j = 0; j < imageArray.length(); j++) {
-                    ImageArray[j] = (String) imageArray.opt(j);
-                    System.out.println(ImageArray[j]);
+                if (image != null) {
+                    String[] ImageArray = new String[imageArray.length()];
+                    for (int j = 0; j < imageArray.length(); j++) {
+                        ImageArray[j] = (String) imageArray.opt(j);
+                        System.out.println(ImageArray[j]);
+                    }
+                    news.setImage(image);
+                    news.setImageArray(ImageArray);
+                    newsList.add(0, news);
                 }
-
-
-                news.setImage(image);
-
-                news.setImageArray(ImageArray);
-                newsList.add(0, news);
-
-
             }
-
             News news1;
             System.out.println("newsList的大小：" + newsList.size());
             for (int j = 0; j < newsList.size(); j++) {
-
                 news1 = newsList.get(j);
                 System.out.println("newslist:" + news1.getShareId() + " " + news1.getTitle() + " " + news1.getContent() + " " + news1.getImage() + " " + "imageArray:" + news1.getImageArray());
                 System.out.println(news1.getFocusUserId());

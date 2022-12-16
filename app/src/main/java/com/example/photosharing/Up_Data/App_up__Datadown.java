@@ -528,12 +528,13 @@ public class App_up__Datadown extends App_close {
                          data = null;
                         try {
                             data = objectMapper.readValue(res, Save_Image_Data.class);
-
-                            title.setText(data.getData().getRecords().get(0).getTitle());
+                            if (data.getData().getRecords().get(0).getImageUrlList() != null)
+                            {
+                                title.setText(data.getData().getRecords().get(0).getTitle());
                             content.setText(data.getData().getRecords().get(0).getContent());
 
                             runable = new Runable();
-                            Thread thread =  new Thread(runable);
+                            Thread thread = new Thread(runable);
                             thread.start();
 
                             Message msg = new Message();
@@ -541,25 +542,22 @@ public class App_up__Datadown extends App_close {
                             msg.what = 1;
 
 
-                            handler2 = new Handler(Looper.getMainLooper())
-                            {
+                            handler2 = new Handler(Looper.getMainLooper()) {
                                 @Override
                                 public void handleMessage(@NonNull Message msg) {
                                     super.handleMessage(msg);
-                                    if(msg.what == 2)
-                                    {
+                                    if (msg.what == 2) {
 
                                         int sig = msg.arg1;
 
                                         bitmapList.add((com.example.photosharing.jsonpare.data_image) msg.obj);
-                                        System.out.println(bitmapList+"?");
+                                        System.out.println(bitmapList + "?");
                                         myAdapter.notifyDataSetChanged();
-                                        if(sig==1)
-                                        {
+                                        if (sig == 1) {
                                             image_loading.setVisibility(View.GONE);
                                             lay_test.setVisibility(View.GONE);
                                         }
-                                    //    System.out.println(bitmapList.get(0));
+                                        //    System.out.println(bitmapList.get(0));
 
                                     }
 
@@ -570,13 +568,11 @@ public class App_up__Datadown extends App_close {
                                 @Override
                                 public void onItemClick(int position) {
                                     if (position == 0) {
-                                        if(sig_Number<5){
+                                        if (sig_Number < 5) {
                                             Intent intent = new Intent(Intent.ACTION_PICK, null);
                                             intent.setDataAndType(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, "image/*");
                                             startActivityForResult(intent, 2);
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             System.out.println("???");
                                         }
                                     }
@@ -584,17 +580,15 @@ public class App_up__Datadown extends App_close {
                             });
 
 
-                            while(true)
-                            {
-                                if(runable.myLooper!=null)
-                                {
+                            while (true) {
+                                if (runable.myLooper != null) {
                                     runable.handler.sendMessage(msg);
 
                                     break;
                                 }
                             }
 
-
+                        }
                         } catch (JsonProcessingException e) {
                             e.printStackTrace();
                         }

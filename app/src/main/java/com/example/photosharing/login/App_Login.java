@@ -181,6 +181,11 @@ public class App_Login extends App_close {
 
                     sig2 =SIG2;
                 }
+                else {
+                    r_information1.putString("account",acc);
+                    r_information1.putString("passowrd",pas);
+                    r_information1.commit();
+                }
             }
         });
 
@@ -262,13 +267,14 @@ public class App_Login extends App_close {
                                 }
                                 if(data!=null)
                                 if(data.getCode()==200) {
-                                    Intent intent = new Intent(App_Login.this, App_Main.class);
-                                    intent.putExtra("Data", res);
-
+                                    Intent[] intent = new Intent[2];
+                                    intent[1] = new Intent(App_Login.this, App_Main.class);
+                                    intent[1].putExtra("Data", res);
+                                    intent[0] = new Intent(App_Login.this,App_jump.class);
                                   //  intent.putExtra("apkId", data.getData().getAppKey());
                                     ActivityCollector.removeActivity(App_Login.this);
                                     finish();
-                                    startActivity(intent);
+                                    startActivities(intent);
                                 }
                                 else
                                 {

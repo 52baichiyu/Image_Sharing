@@ -175,6 +175,7 @@ public class NewsAdapter_user extends RecyclerView.Adapter<NewsAdapter_user.View
 
                 case 2:
                     url = "http://47.107.52.7:88/member/photo/like/cancel?likeId="+aboutId;
+                    System.out.println("进入点赞删除");
                     break;
 
             }

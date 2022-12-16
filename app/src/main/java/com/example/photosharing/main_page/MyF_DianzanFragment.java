@@ -107,13 +107,13 @@ public class MyF_DianzanFragment extends Fragment {
 //            System.out.println("获取的数据是"+mParam1);
 ////            mParam2 = getArguments().getString(ARG_PARAM2);
 //        }
-        try {
-            //等待get方法执行完在继续执行程序
-            get();
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            //等待get方法执行完在继续执行程序
+//            get();
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
 
     }
@@ -122,7 +122,13 @@ public class MyF_DianzanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
+        try {
+            //等待get方法执行完在继续执行程序
+            get();
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         View rootView = inflater.inflate(R.layout.fragment_dianzan,container,false);
 
@@ -284,7 +290,7 @@ public class MyF_DianzanFragment extends Fragment {
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         if (enter&&!_isGetData)
         {
-
+            get();
         }
         else {
             _isGetData =false;
@@ -303,7 +309,7 @@ public class MyF_DianzanFragment extends Fragment {
     public void onResume() {
         if(!_isGetData)
         {
-            get();
+
             _isGetData = true;
         }
         super.onResume();

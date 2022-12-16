@@ -85,13 +85,7 @@ public class MyF_DynamicFragment extends Fragment {
         bundle = getArguments();
         data = (data_login) bundle.getSerializable("data");
         mParam1 = data.getData().getId();
-        try {
-            //等待get方法执行完在继续执行程序
-            get();
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -100,7 +94,13 @@ public class MyF_DynamicFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        try {
+            //等待get方法执行完在继续执行程序
+            get();
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         View rootView =view;
@@ -274,7 +274,7 @@ public class MyF_DynamicFragment extends Fragment {
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         if (enter&&!_isGetData)
         {
-
+            get();
         }
         else {
             _isGetData =false;
@@ -293,7 +293,7 @@ public class MyF_DynamicFragment extends Fragment {
     public void onResume() {
         if(!_isGetData)
         {
-            get();
+
             _isGetData = true;
         }
         super.onResume();

@@ -39,13 +39,13 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginEnd="168dp"
-            android:layout_marginBottom="0dp"
 
             android:layout_weight="1"
             android:background="@drawable/up"
             android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

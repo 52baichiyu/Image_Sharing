@@ -1,117 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Personal_center.Edit_imformation">
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".Personal_center.Edit_imformation">-->
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <ImageView
-            android:id="@+id/Back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+<!--        <ImageView-->
+<!--            android:id="@+id/Back"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:src="@drawable/ic_baseline_arrow_back_ios_24"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-        <TextView
-            android:id="@+id/Titile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:text="编辑资料"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/Back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Back" />
+<!--        <TextView-->
+<!--            android:id="@+id/Titile"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="100dp"-->
+<!--            android:text="编辑资料"-->
+<!--            android:textSize="30dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/Back"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/Back" />-->
+<!--    </LinearLayout>-->
+
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/User_Pictrue"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="170dp"-->
+
+<!--        android:layout_marginStart="120dp"-->
+<!--        android:layout_marginTop="72dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/User_Pictrue1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/image_haeder_style"-->
+
+
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/userName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="用户名"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/User_Pictrue"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="30dp"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/Sex"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="女"-->
+<!--        android:inputType="text"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/userName"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="30dp"/>-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/introduction"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="96dp"-->
+<!--        android:text="个人介绍"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Sex" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/save"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="132dp"-->
+<!--        android:background="@drawable/my_button_login"-->
+<!--        android:text="保存"-->
+<!--        android:textSize="30sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/introduction" />-->
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#EEEEEE">
+    <LinearLayout android:id="@+id/linearLayout" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/white" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@+id/Back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginTop="10dp" android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+        <TextView android:id="@+id/Titile" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="100dp" android:layout_marginTop="10dp" android:text="编辑资料" android:textSize="30dp"/>
     </LinearLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/User_Pictrue"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/User_Pictrue1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/image_haeder_style"
-
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/User_Pictrue" android:layout_width="170dp" android:layout_height="170dp" android:layout_marginStart="120dp" android:layout_marginTop="72dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@+id/User_Pictrue1" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/image_haeder_style" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="用户名"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/User_Pictrue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
-
-    <EditText
-        android:id="@+id/Sex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="女"
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/userName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
-
-    <EditText
-        android:id="@+id/introduction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="个人介绍"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sex" />
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:background="@drawable/my_button_login"
-        android:text="保存"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/introduction" />
-
-
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@+id/User_Pictrue" android:layout_marginTop="50dp" android:orientation="vertical">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="60dp" android:background="@color/white">
+            <TextView android:id="@+id/TextUserName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_marginStart="15dp" android:gravity="center" android:text="用户名:" android:textColor="@color/black" android:textSize="30sp" android:textStyle="normal"/>
+            <EditText android:id="@+id/userName" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_marginStart="10dp" android:layout_toEndOf="@+id/TextUserName" android:background="@null" android:hint="请输入内容" android:textSize="30sp" android:textStyle="italic"/>
+            <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_marginEnd="13dp" android:src="@drawable/_button_rigth"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="5dp" android:background="@color/white">
+            <TextView android:id="@+id/TextSex" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_marginStart="15dp" android:gravity="center" android:text="性别:" android:textColor="@color/black" android:textSize="30sp" android:textStyle="normal"/>
+            <RadioGroup android:id="@+id/radioGroup_gender" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="horizontal">
+                <RadioButton android:id="@+id/radioButton_male" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_gravity="center_horizontal" android:textSize="30sp" android:text="男"/>
+                <RadioButton android:id="@+id/radioButton_female" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_gravity="center_horizontal" android:textSize="30sp" android:text="女"/>
+            </RadioGroup>
+            <!--             <EditText -->
+            <!--                 android:id="@+id/Sex" -->
+            <!--                 android:layout_width="match_parent" -->
+            <!--                 android:layout_height="wrap_content" -->
+            <!--                 android:layout_alignParentTop="true" -->
+            <!--                 android:layout_alignParentBottom="true" -->
+            <!--                 android:layout_marginStart="40dp" -->
+            <!--                 android:layout_toEndOf="@+id/TextSex" -->
+            <!--                 android:background="@null" -->
+            <!--                 android:hint="请输入内容" -->
+            <!--                 android:textSize="30sp" -->
+            <!--                 android:textStyle="italic" /> -->
+            <!--             <ImageView -->
+            <!--                 android:layout_width="50dp" -->
+            <!--                 android:layout_height="50dp" -->
+            <!--                 android:layout_alignParentTop="true" -->
+            <!--                 android:layout_alignParentRight="true" -->
+            <!--                 android:layout_alignParentBottom="true" -->
+            <!--                 android:layout_marginEnd="13dp" -->
+            <!--                 android:src="@drawable/_button_rigth" /> -->
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="60dp" android:background="@color/white" android:layout_marginTop="5dp">
+            <TextView android:id="@+id/TextIntroduce" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignTop="@+id/introduction" android:layout_alignBottom="@+id/introduction" android:layout_marginStart="15dp" android:gravity="center" android:text="介绍:" android:textColor="@color/black" android:textSize="30sp" android:textStyle="normal"/>
+            <EditText android:id="@+id/introduction" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_marginStart="40dp" android:layout_toEndOf="@+id/TextIntroduce" android:background="@null" android:hint="介绍一下自己吧" android:textSize="30sp" android:textStyle="italic"/>
+            <ImageView android:layout_width="50dp" android:layout_height="50dp" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_marginEnd="13dp" android:src="@drawable/_button_rigth"/>
+        </RelativeLayout>
+        <Button android:id="@+id/save" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="30dp" app:layout_constraintHorizontal_bias="0.498" android:background="@drawable/my_button_login" android:text="保存" android:textSize="30sp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

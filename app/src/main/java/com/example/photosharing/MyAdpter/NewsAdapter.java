@@ -57,7 +57,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> im
         News news=mNewsData.get(position);
         holder.tvTitle.setText(news.getTitle());
         holder.tvContent.setText(news.getContent());
-
+        if(news.getImageArray()!=null)
+            System.out.println(news.getImageArray()[0]);
         Glide.with(mContext)
                 .load(news.getImageArray()[0])
                 .placeholder(R.drawable.ic_baseline_sync_24)

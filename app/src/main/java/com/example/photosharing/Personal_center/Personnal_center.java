@@ -25,6 +25,7 @@ import com.example.photosharing.R;
 import com.example.photosharing.jsonpare.data_login;
 import com.example.photosharing.login.App_Login;
 import com.example.photosharing.main.App_Main;
+import com.example.photosharing.main_page.MyFragment;
 
 public class Personnal_center extends App_close {
     private data_login _data;
@@ -32,6 +33,10 @@ public class Personnal_center extends App_close {
     private View _personnalDataChange;
     private ImageView _reBackCenter;
     private Button _unLogin;
+
+
+    private Bundle bundle;
+    private boolean flag = true;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +47,9 @@ public class Personnal_center extends App_close {
         _reBackCenter = findViewById(R.id.reBack_center);
         _unLogin = findViewById(R.id.un_login);
         Button button = findViewById(R.id.save);
+
+
+
 
         Intent intent = getIntent();
         _data = (data_login) intent.getSerializableExtra("data");
@@ -59,9 +67,12 @@ public class Personnal_center extends App_close {
         _reBackCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(bundle!=null)
+                    intent.putExtras(bundle);
+                    setResult(RESULT_OK, intent);
+                    ActivityCollector.removeActivity(Personnal_center.this);
+                    finish();
 
-               ActivityCollector.removeActivity(Personnal_center.this);
-                finish();
             }
         });
         //个人信息页面入口
@@ -70,7 +81,7 @@ public class Personnal_center extends App_close {
             public void onClick(View view) {
                 Intent intent = new Intent(Personnal_center.this, Personnal_data.class);
                 intent.putExtra("data", _data);
-                startActivity(intent);
+                activityResultLauncher.launch(intent);
             }
         });
          //
@@ -101,9 +112,7 @@ public class Personnal_center extends App_close {
                         Intent data = result.getData();
                         //获取返回的数据
 //                        assert data != null;
-                        Bundle bundle = data.getExtras();
-
-                        boolean flag = bundle.getBoolean("flag");
+                        bundle = data.getExtras();
                         if(flag){
                             String temp_userName = bundle.getString("userName");
                             int temp_sex = bundle.getInt("sex");
@@ -115,14 +124,16 @@ public class Personnal_center extends App_close {
                             _data.getData().setIntroduce(temp_introduction);
                             _data.getData().setAvatar(bundle.getString("avatar"));
 
-
+                            bundle.putSerializable("data",_data);
 
 
 
                         }
+                    }
+
 
                     }
-                }
+
 
             });
 

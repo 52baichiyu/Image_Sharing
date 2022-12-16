@@ -271,8 +271,15 @@ public class App_up_Data extends App_close {
                                                              if(data_pubilish.getCode()==200)
                                                              {
                                                                  Toast.makeText(App_up_Data.this, "发布成功！", Toast.LENGTH_SHORT).show();
-                                                                 ActivityCollector.removeActivity(App_up_Data.this);
-                                                                 finish();
+                                                                 title_text.setText(" ");
+                                                                 conte_text.setText(" ");
+
+                                                                 for (int i = newslist.size()-1;i>0;i--)
+                                                                     newslist.remove(i);
+                                                                 myAdapter.notifyItemInserted(0);
+
+                                                                 myAdapter.notifyItemChanged(0,newslist.size()-0);
+                                                                 myAdapter.notifyDataSetChanged();
                                                              }
                                                              else
                                                              {
@@ -369,6 +376,10 @@ public class App_up_Data extends App_close {
 
                                         JSONObject pubilish = new JSONObject();
                                         try {
+                                            if (pu_content==null)
+                                                pu_content=" ";
+                                            if (pu_title==null)
+                                                pu_title=" ";
                                             pubilish.put("content",pu_content);
                                             pubilish.put("imageCode",image_code);
                                             pubilish.put("pUserId",Id);

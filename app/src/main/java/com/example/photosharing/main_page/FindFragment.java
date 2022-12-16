@@ -51,6 +51,7 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
         Bundle bundle = getArguments();
         userId = bundle.getString("id");
         userName = bundle.getString("userName");
+        System.out.println(userName+"54");
         System.out.println(userId);
     }
 
@@ -78,7 +79,6 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
         mTableLayout.setupWithViewPager(mViewPager);
 
         //返回视图
-
 
        // View view = inflater.inflate(R.layout.fragment_my, container, false);
         // Inflate the layout for this fragment
@@ -109,8 +109,8 @@ public class FindFragment extends Fragment implements View.OnClickListener,View.
             Bundle bundle = new Bundle();
 
              bundle.putString("id",userId);
-             bundle.getString("userName",userName);
-             bundle.getInt("sig",1);
+             bundle.putString("userName",userName);
+             bundle.putInt("sig",1);
             fragment.setArguments(bundle);
             return mFragment.get(position);
         }

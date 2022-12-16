@@ -293,17 +293,22 @@ public class FindFragment_child extends Fragment implements View.OnClickListener
                 JSONArray imageArray = jsonObject2.getJSONArray("imageUrlList");
                 System.out.println("长度：" + imageArray.length());
                 String image = (String) imageArray.opt(0);
+                if(image!=null)
+                {
 
+                    System.out.println("??? 299");
                 String[] ImageArray = new String[imageArray.length()];
                 for (int j = 0; j < imageArray.length(); j++) {
                     ImageArray[j] = (String) imageArray.opt(j);
                     System.out.println(ImageArray[j]);
                 }
 
+
                 news.setImage(image);
 
                 news.setImageArray(ImageArray);
                 newsList.add(0, news);
+            }
             }
 
             News news;
